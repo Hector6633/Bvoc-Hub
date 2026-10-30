@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% load partials %}
+<head>
+    {% include "partials/components.html#header" %}
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    {% include "partials/components.html#navbar" %}
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Sign In</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Sign-up Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Sign In</h6>
+                <h1 class="mb-5">Sign In Here</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.3s">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        <h1{% if message.tags %} class="{{ message.tags }}" {% endif %}><strong>{{ message }}<strong><h1>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" name="username" required class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Your Username</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" name="password" required class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Your Password</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign-up End -->
+
+
+    <!-- Footer Start -->
+    {% include "partials/components.html#footer" %}
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    {% include "partials/scripts.html#scripts" %}
+
+</body>
+
+</html>
