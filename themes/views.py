@@ -28,9 +28,3 @@ def contact(request):
 
 def achievements(request):
     return render(request, 'achievements.html')
-
-def sign_up(request):
-    return render(request, 'sign-up.html')
-
-def sign_in(request):
-    return render(request, 'sign-in.html')

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'template_partials',
     'themes',
+    'accounts',
 ]
 
 MIDDLEWARE = [
