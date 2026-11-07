@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'template_partials',
     'themes',
     'accounts',
+    'students',
 ]
 
 MIDDLEWARE = [

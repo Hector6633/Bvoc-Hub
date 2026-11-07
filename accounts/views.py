@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from . auth import unauthenticated_user
 # Create your views here.
+@unauthenticated_user
 def sign_up(request):
     if request.method == 'POST':
         try:
@@ -21,6 +23,7 @@ def sign_up(request):
             return redirect('sign_up')
     return render(request, 'sign-up.html')
 
+@unauthenticated_user
 def sign_in(request):
     if request.method == 'POST':
         username = request.POST['username']

@@ -67,13 +67,13 @@
                 </div>
                 <div class="nav-item dropdown">
                     {% with current_url=request.resolver_match.url_name %}
-                    <a href="#" class="nav-link dropdown-toggle {% if current_url == 'sign_in' or current_url == 'sign_up' %}active{% endif %}" data-bs-toggle="dropdown">Students</a>
+                    <a href="#" class="nav-link dropdown-toggle {% if current_url == 'achievements' or current_url == 'first_year' or current_url == 'second_year' or current_url == 'third_year' %}active{% endif %}" data-bs-toggle="dropdown">Students</a>
                     {% endwith %}
                     <div class="dropdown-menu fade-down m-0">
                         <a href="{% url "achievements" %}" class="dropdown-item">Achievements</a>
-                        <a href="team.html" class="dropdown-item">First Year</a>
-                        <a href="testimonial.html" class="dropdown-item">Second Year</a>
-                        <a href="404.html" class="dropdown-item">Third Year</a>
+                        <a href="{% url "first_year" %}" class="dropdown-item">First Year</a>
+                        <a href="{% url "second_year" %}" class="dropdown-item">Second Year</a>
+                        <a href="{% url "third_year" %}" class="dropdown-item">Third Year</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown">
