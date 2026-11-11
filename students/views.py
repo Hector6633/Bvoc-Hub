@@ -8,10 +8,19 @@ def first_year(request):
     return render(request, 'first-year.html', student_data)
 
 def second_year(request):
-    return render(request, 'second-year.html')
+    student_data = {
+            'second_year': Second_Year.objects.all(),
+        }
+    return render(request, 'second-year.html', student_data)
 
 def third_year(request):
-    return render(request, 'third-year.html')
+    student_data = {
+            'third_year': Third_Year.objects.all(),
+        }
+    return render(request, 'third-year.html', student_data)
 
 def achievements(request):
-    return render(request, 'achievements.html')
+    achievements_data = {
+            'achievements': Achievement.objects.all(),
+        }
+    return render(request, 'achievements.html', achievements_data)
