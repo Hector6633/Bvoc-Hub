@@ -9,3 +9,13 @@ class Contact(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Faculty(models.Model):
+    image = models.ImageField(upload_to='faculty')
+    name = models.CharField(max_length=25)
+    qualification = models.CharField(max_length=25)
+    research_area = models.CharField(max_length=50)
+    email = models.EmailField()
+    
+    def __str__(self):
+        return self.name

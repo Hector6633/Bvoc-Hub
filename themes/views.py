@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
-from .models import Contact
+from .models import Contact, Faculty
 from django.contrib import messages
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    faculty_data = {
+            'faculties': Faculty.objects.all(),
+        }
+    return render(request, 'index.html', faculty_data)
 
 def about(request):
-    return render(request, 'about.html')
+    faculty_data = {
+        'faculties': Faculty.objects.all(),
+    }
+    return render(request, 'about.html', faculty_data)
 
 def contact(request):
     if request.method == 'POST':
@@ -25,5 +31,6 @@ def contact(request):
             messages.error(request, error_msg)
             return redirect('contact')
     return render(request, 'contact.html')
+
 
 
