@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Contact, Faculty
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
 # Create your views here.
 def index(request):
     faculty_data = {
@@ -23,6 +25,15 @@ def contact(request):
             message = request.POST['message']
             user_data = Contact.objects.create(name=name, email=email, subject=subject, message=message)
             user_data.save()
+            subject = "Bvoc Hub - Feedback"
+            message = f"Dear {name},\nThanks for your feedback on Bvoc Hub.\nBest Regards,\nBvoc Hub Team"
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=True,
+            )
             success_msg = 'Successfully Sent Message'
             messages.success(request, success_msg)
             return redirect('contact')
